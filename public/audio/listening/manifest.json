@@ -1,0 +1,37 @@
+[
+  {
+    "id": "p1-01",
+    "part": 1,
+    "filename": "part1_p1-01.mp3",
+    "url": "/audio/listening/part1_p1-01.mp3",
+    "scriptPreview": "Number 1. Look at the image marked number 1. (A) The partici..."
+  },
+  {
+    "id": "p1-02",
+    "part": 1,
+    "filename": "part1_p1-02.mp3",
+    "url": "/audio/listening/part1_p1-02.mp3",
+    "scriptPreview": "Number 2. Look at the image marked number 2. (A) A cashier i..."
+  },
+  {
+    "id": "p1-03",
+    "part": 1,
+    "filename": "part1_p1-03.mp3",
+    "url": "/audio/listening/part1_p1-03.mp3",
+    "scriptPreview": "Number 3. Look at the image marked number 3. (A) Cardboard b..."
+  },
+  {
+    "id": "p1-04",
+    "part": 1,
+    "filename": "part1_p1-04.mp3",
+    "url": "/audio/listening/part1_p1-04.mp3",
+    "scriptPreview": "Number 4. Look at the image marked number 4. (A) The archite..."
+  },
+  {
+    "id": "p1-05",
+    "part": 1,
+    "filename": "part1_p1-05.mp3",
+    "url": "/audio/listening/part1_p1-05.mp3",
+    "scriptPreview": "Number 5. Look at the image marked number 5. (A) Office chai..."
+  }
+]
