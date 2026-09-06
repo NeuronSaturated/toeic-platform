@@ -13,7 +13,8 @@ import {
   Flame, 
   Menu, 
   X,
-  Sparkles
+  Sparkles,
+  GraduationCap
 } from 'lucide-react';
 import { useTOEICStore } from '@/lib/store';
 import { isSupabaseConfigured } from '@/lib/supabase/client';
@@ -28,6 +29,7 @@ export const Navbar = () => {
 
   const navItems = [
     { name: 'Práctica por Partes', href: '/', icon: BookOpen },
+    { name: 'Guía de Estudio', href: '/study', icon: GraduationCap },
     { name: 'Simulacro', href: '/mock-test', icon: Clock },
     { 
       name: 'Banco de Errores', 

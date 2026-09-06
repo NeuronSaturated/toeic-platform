@@ -211,19 +211,42 @@ class TOEICAudioEngine {
       this.audioElement.src = contentUrl;
       this.audioElement.playbackRate = this.currentSpeed;
       return this.audioElement.play().then(() => this.notifyState()).catch(() => {
-        // Fallback to speech synthesis if audio file fails
         if (spokenScript) {
-          return this.playSpeech(spokenScript);
+          return this.playSpeechOrApi(spokenScript);
         }
       });
     }
 
-    // 2. High-Fidelity English Speech Synthesis
+    // 2. High-Fidelity English Audio via /api/tts with Web Speech fallback
     if (spokenScript) {
-      return this.playSpeech(spokenScript);
+      return this.playSpeechOrApi(spokenScript);
     }
 
     return Promise.resolve();
+  }
+
+  private playSpeechOrApi(spokenScript: string): Promise<void> {
+    if (typeof window === 'undefined') return Promise.resolve();
+
+    // Strategy 1: Use high-fidelity server-side TTS MP3 stream
+    if (this.audioElement) {
+      const apiUrl = `/api/tts?accent=${this.currentAccent}&text=${encodeURIComponent(spokenScript)}`;
+      this.audioElement.src = apiUrl;
+      this.audioElement.playbackRate = this.currentSpeed;
+      this.activeVoiceName = this.currentAccent === 'US' ? 'Native US Speaker (HD)' : 'Native UK Speaker (HD)';
+
+      return this.audioElement.play()
+        .then(() => {
+          this.notifyState();
+        })
+        .catch((err) => {
+          console.warn('[AudioEngine] /api/tts failed, falling back to local speech synthesis:', err);
+          return this.playSpeech(spokenScript);
+        });
+    }
+
+    // Strategy 2: Fallback to local browser Web Speech
+    return this.playSpeech(spokenScript);
   }
 
   private playSpeech(spokenScript: string): Promise<void> {

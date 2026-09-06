@@ -12,7 +12,8 @@ import {
   ArrowRight,
   Flame,
   CheckCircle,
-  BarChart2
+  BarChart2,
+  GraduationCap
 } from 'lucide-react';
 import { TOEIC_PARTS } from '@/lib/parts-meta';
 import { PartCard } from '@/components/part-card';
@@ -56,6 +57,14 @@ export default function HomePage() {
               <Clock className="w-4 h-4 text-blue-600" />
               <span>Iniciar Simulacro Oficial</span>
               <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="/study"
+              className="px-6 py-3.5 rounded-2xl bg-white/15 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-bold text-sm flex items-center gap-2 hover:scale-102 active:scale-98 transition-all"
+            >
+              <GraduationCap className="w-4 h-4 text-cyan-300" />
+              <span>Estudiar Guía</span>
             </Link>
 
             <Link
