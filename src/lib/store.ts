@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { PartNumber, Question, Passage, ExamAttempt, ReviewItem, UserStats } from './types';
 import { calculateTOEICScore } from './toeic-scoring';
+import { saveReviewItemToCloud } from './supabase/sync';
 
 interface AppState {
   // Theme
@@ -140,6 +141,7 @@ export const useTOEICStore = create<AppState>()(
               isMastered: false,
               lastAttemptedAt: new Date().toISOString()
             };
+            saveReviewItemToCloud(reviewBank[question.id]);
           }
 
           return { stats, reviewBank };
@@ -172,6 +174,7 @@ export const useTOEICStore = create<AppState>()(
             isMastered: false,
             lastAttemptedAt: new Date().toISOString()
           };
+          saveReviewItemToCloud(reviewBank[question.id]);
           return { reviewBank };
         });
       },
@@ -199,6 +202,7 @@ export const useTOEICStore = create<AppState>()(
               lastAttemptedAt: new Date().toISOString()
             };
           }
+          saveReviewItemToCloud(reviewBank[questionId]);
 
           return { reviewBank };
         });

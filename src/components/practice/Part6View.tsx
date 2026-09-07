@@ -40,7 +40,7 @@ export const Part6View: React.FC<Part6ViewProps> = ({
 
   const handleBookmark = (q: Question) => {
     addToReviewBank(q, passage);
-    alert('Pregunta añadida al Banco de Errores.');
+    alert('Pregunta añadida al Centro de Repaso.');
   };
 
   const allAnswered = questions.every(q => selectedAnswers[q.id] !== undefined);

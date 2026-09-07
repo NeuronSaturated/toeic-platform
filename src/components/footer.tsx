@@ -5,7 +5,7 @@ import { Sparkles, Award } from 'lucide-react';
 export const Footer = () => {
   return (
     <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 py-10 transition-colors mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand Column */}
           <div className="md:col-span-2 space-y-3">
@@ -18,7 +18,7 @@ export const Footer = () => {
               </span>
             </div>
             <p className="text-sm text-slate-600 dark:text-slate-400 max-w-sm">
-              Plataforma integral de preparación para el examen TOEIC® con las 7 partes oficiales, modo simulacro cronometrado, banco de errores con repetición espaciada y analítica de desempeño.
+              Plataforma integral de preparación para el examen TOEIC® con las 7 partes oficiales, modo simulacro cronometrado, centro de repaso con repetición espaciada y analítica de desempeño.
             </p>
             <div className="flex items-center gap-2 text-xs text-slate-500">
               <Award className="w-4 h-4 text-blue-500" />
@@ -33,9 +33,10 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
               <li><Link href="/" className="hover:text-blue-600 transition-colors">Práctica por Partes (1-7)</Link></li>
+              <li><Link href="/study" className="hover:text-blue-600 transition-colors">Guía de Estudio & Verbos</Link></li>
               <li><Link href="/mock-test" className="hover:text-blue-600 transition-colors">Simulacro Oficial (Mock Test)</Link></li>
-              <li><Link href="/review-bank" className="hover:text-blue-600 transition-colors">Banco de Errores</Link></li>
-              <li><Link href="/dashboard" className="hover:text-blue-600 transition-colors">Dashboard Analítico</Link></li>
+              <li><Link href="/review-bank" className="hover:text-blue-600 transition-colors">Centro de Repaso</Link></li>
+              <li><Link href="/dashboard" className="hover:text-blue-600 transition-colors">Mi Progreso</Link></li>
             </ul>
           </div>
 

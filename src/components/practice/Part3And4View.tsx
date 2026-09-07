@@ -42,7 +42,7 @@ export const Part3And4View: React.FC<Part3And4ViewProps> = ({
 
   const handleBookmark = (q: Question) => {
     addToReviewBank(q, passage);
-    alert('Pregunta añadida al Banco de Errores.');
+    alert('Pregunta añadida al Centro de Repaso.');
   };
 
   const allAnswered = questions.every(q => selectedAnswers[q.id] !== undefined);
@@ -96,7 +96,7 @@ export const Part3And4View: React.FC<Part3And4ViewProps> = ({
                   <button
                     onClick={() => handleBookmark(q)}
                     className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-slate-100 dark:hover:bg-slate-800"
-                    title="Guardar en Banco de Errores"
+                    title="Guardar en Centro de Repaso"
                   >
                     <BookmarkPlus className="w-4 h-4" />
                   </button>

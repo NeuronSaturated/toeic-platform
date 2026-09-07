@@ -33,7 +33,7 @@ export const Part1View: React.FC<Part1ViewProps> = ({
 
   const handleBookmark = () => {
     addToReviewBank(question, passage);
-    alert('Pregunta añadida al Banco de Errores para repaso.');
+    alert('Pregunta añadida al Centro de Repaso.');
   };
 
   const isCorrect = selectedKey === question.correctAnswer;
@@ -76,14 +76,21 @@ export const Part1View: React.FC<Part1ViewProps> = ({
 
           {/* Answer Option Buttons (A, B, C, D) */}
           <div className="space-y-2.5 pt-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
-              Selecciona tu respuesta:
-            </span>
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
+                {hasAnswered ? 'Revisión de opciones:' : 'Selecciona la opción correcta:'}
+              </span>
+              {!hasAnswered && (
+                <span className="text-[11px] font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2.5 py-0.5 rounded-full">
+                  🎧 Modo Auditivo Puro
+                </span>
+              )}
+            </div>
             {question.options.map((option) => {
               const isThisSelected = selectedKey === option.key;
               const isThisCorrect = option.key === question.correctAnswer;
 
-              let btnStyle = 'border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-blue-500 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200';
+              let btnStyle = 'border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-blue-500 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 shadow-sm';
               if (hasAnswered) {
                 if (isThisCorrect) {
                   btnStyle = 'border-emerald-500 bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-semibold ring-2 ring-emerald-500/20';
@@ -102,10 +109,18 @@ export const Part1View: React.FC<Part1ViewProps> = ({
                   className={`w-full p-4 rounded-xl border text-left flex items-center justify-between transition-all active:scale-99 ${btnStyle}`}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold flex items-center justify-center text-sm">
+                    <span className={`w-8 h-8 rounded-lg font-bold flex items-center justify-center text-sm transition-colors ${
+                      hasAnswered && isThisCorrect 
+                        ? 'bg-emerald-600 text-white' 
+                        : hasAnswered && isThisSelected && !isThisCorrect
+                        ? 'bg-rose-600 text-white'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+                    }`}>
                       {option.key}
                     </span>
-                    <span className="text-sm">{option.text}</span>
+                    <span className="text-sm font-medium">
+                      {hasAnswered ? option.text : `Option ${option.key}`}
+                    </span>
                   </div>
 
                   {hasAnswered && isThisCorrect && (
@@ -152,7 +167,7 @@ export const Part1View: React.FC<Part1ViewProps> = ({
               <button
                 onClick={handleBookmark}
                 className="p-2 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-blue-600"
-                title="Guardar en Banco de Errores"
+                title="Guardar en Centro de Repaso"
               >
                 <BookmarkPlus className="w-5 h-5" />
               </button>

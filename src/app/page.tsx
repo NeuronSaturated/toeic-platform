@@ -34,25 +34,30 @@ export default function HomePage() {
   return (
     <div className="space-y-12 animate-in fade-in-50 duration-500">
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-indigo-700 to-slate-900 text-white p-8 sm:p-12 shadow-2xl border border-white/10">
-        <div className="relative z-10 max-w-3xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-blue-100">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-indigo-700 to-slate-900 text-white p-8 sm:p-12 lg:p-14 shadow-2xl border border-white/10">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-blue-400/20 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/3 -mb-20 w-80 h-80 rounded-full bg-indigo-500/20 blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 max-w-4xl space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-blue-100">
             <Sparkles className="w-4 h-4 text-amber-300" />
-            <span>Banco Masivo de +330 Ejercicios Originales</span>
+            <span>Banco Oficial de +330 Ejercicios • 7 Partes Calibradas</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15]">
             Domina el Examen TOEIC® con Precisión y Confianza
           </h1>
 
-          <p className="text-base sm:text-lg text-blue-100/90 leading-relaxed max-w-2xl">
-            Práctica adaptativa para las 7 partes oficiales del examen. Audios con acentos reales, modo simulacro cronometrado, banco de errores inteligente y estimación de puntaje oficial (10 - 990).
+          <p className="text-base sm:text-lg lg:text-xl text-blue-100/90 leading-relaxed max-w-3xl font-normal">
+            Práctica adaptativa para las 7 partes oficiales del examen. Audios en alta definición con acentos nativos (US y UK), 
+            simulacro cronometrado, centro de repaso inteligente y guía gramatical con verbos indispensables.
           </p>
 
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <div className="flex flex-wrap items-center gap-3.5 pt-3">
             <Link
               href="/mock-test"
-              className="px-6 py-3.5 rounded-2xl bg-white text-blue-900 hover:bg-blue-50 font-bold text-sm flex items-center gap-2 shadow-lg shadow-black/20 hover:scale-102 active:scale-98 transition-all"
+              className="px-6 py-3.5 rounded-2xl bg-white text-blue-950 hover:bg-blue-50 font-bold text-sm flex items-center gap-2 shadow-lg shadow-black/20 hover:scale-102 active:scale-98 transition-all"
             >
               <Clock className="w-4 h-4 text-blue-600" />
               <span>Iniciar Simulacro Oficial</span>
@@ -61,10 +66,10 @@ export default function HomePage() {
 
             <Link
               href="/study"
-              className="px-6 py-3.5 rounded-2xl bg-white/15 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-bold text-sm flex items-center gap-2 hover:scale-102 active:scale-98 transition-all"
+              className="px-6 py-3.5 rounded-2xl bg-white/15 hover:bg-white/20 backdrop-blur-md border border-white/25 text-white font-bold text-sm flex items-center gap-2 hover:scale-102 active:scale-98 transition-all"
             >
               <GraduationCap className="w-4 h-4 text-cyan-300" />
-              <span>Estudiar Guía</span>
+              <span>Guía de Estudio & Verbos</span>
             </Link>
 
             <Link
@@ -72,13 +77,13 @@ export default function HomePage() {
               className="px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-bold text-sm flex items-center gap-2 hover:scale-102 active:scale-98 transition-all"
             >
               <AlertCircle className="w-4 h-4 text-amber-300" />
-              <span>Banco de Errores ({missedCount})</span>
+              <span>Centro de Repaso ({missedCount})</span>
             </Link>
           </div>
         </div>
 
         {/* Floating Stat Highlights */}
-        <div className="mt-8 pt-8 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center sm:text-left">
+        <div className="relative z-10 mt-10 pt-8 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center sm:text-left">
           <div>
             <div className="text-2xl sm:text-3xl font-extrabold text-white">330+</div>
             <div className="text-xs text-blue-200">Preguntas originales</div>
@@ -185,7 +190,7 @@ export default function HomePage() {
               Repetición Espaciada
             </h4>
             <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-              Toda pregunta fallada se traslada a tu Banco de Errores para reentrenar hasta que la domines dos veces seguidas.
+              Toda pregunta fallada se traslada a tu Centro de Repaso para reentrenar hasta que la domines dos veces seguidas.
             </p>
           </div>
         </div>

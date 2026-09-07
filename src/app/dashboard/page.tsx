@@ -34,15 +34,26 @@ export default function DashboardPage() {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Dashboard Analítico de Rendimiento
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-semibold mb-1">
+            <BarChart3 className="w-3.5 h-3.5" />
+            <span>Métricas & Evolución Oficial</span>
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+            Mi Progreso
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400">
-            Seguimiento de tu evolución, fortalezas por habilidad y proyección oficial de puntaje.
+            Seguimiento de tu evolución, fortalezas por habilidad y proyección oficial de puntaje (10 - 990).
           </p>
         </div>
 
         <div className="flex items-center gap-3">
+          <Link
+            href="/review-bank"
+            className="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-blue-400 text-slate-700 dark:text-slate-200 font-semibold text-xs flex items-center gap-1.5 transition-all"
+          >
+            <span>Centro de Repaso ({missedCount})</span>
+          </Link>
+
           <Link
             href="/mock-test"
             className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs flex items-center gap-1.5 shadow-md shadow-blue-500/20 active:scale-95 transition-all"
@@ -101,7 +112,7 @@ export default function DashboardPage() {
             {missedCount}
           </div>
           <Link href="/review-bank" className="text-[11px] text-blue-500 hover:underline flex items-center gap-1">
-            <span>En Banco de Errores</span>
+            <span>En Centro de Repaso</span>
             <ArrowRight className="w-3 h-3" />
           </Link>
         </div>

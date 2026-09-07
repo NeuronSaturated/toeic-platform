@@ -30,7 +30,7 @@ export const Part5View: React.FC<Part5ViewProps> = ({
 
   const handleBookmark = () => {
     addToReviewBank(question);
-    alert('Pregunta añadida al Banco de Errores.');
+    alert('Pregunta añadida al Centro de Repaso.');
   };
 
   const isCorrect = selectedKey === question.correctAnswer;
@@ -134,7 +134,7 @@ export const Part5View: React.FC<Part5ViewProps> = ({
               <button
                 onClick={handleBookmark}
                 className="p-2 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-blue-600"
-                title="Guardar en Banco de Errores"
+                title="Guardar en Centro de Repaso"
               >
                 <BookmarkPlus className="w-5 h-5" />
               </button>
